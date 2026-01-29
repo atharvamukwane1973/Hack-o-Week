@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Assignment 4 - Sports Spectra</title>
+    <style>
+        body {
+            /* Replace with your frame image */
+            background-image: url("https://img.freepik.com/photos-premium/collage-plusieurs-athletes-pratiquant-differents-sports_978521-37120.jpg?w=1380"); 
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: center;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 800px;
+            margin:50px auto; /* Centers the form and adds top/bottom space */
+            background-color: rgba(138, 171, 180, 0.382);
+            padding: 30px;
+            border-radius: 5000px;
+            box-shadow: 0 0 15px rgba(230, 189, 189, 0.3);
+        }
+
+        h1 {
+            background-color: #4badb356;
+            text-align: center;
+            padding: 10px;
+            border-radius: 5000px;
+            margin-top: 0;
+        }
+
+        
+        
+        /* Creates a row that holds multiple items side-by-side */
+        .form-row {
+            display: flex;
+            gap: 20px; /* Space between columns */
+            margin-bottom: 15px; /* Space below the row */
+        }
+
+        /* Forces each input group to take up equal space */
+        .form-col {
+            flex: 2; 
+            display: flex;
+            flex-direction: column; /* Puts label ON TOP of input */
+        }
+
+        /* Styling for Labels to make them look sharp */
+        label {
+            font-weight: bold;
+            margin-bottom: 5px;
+            color: #000000;
+        }
+
+        /* Styling for Inputs to make them same width and height */
+        input[type="text"], 
+        input[type="email"], 
+        input[type="date"],
+        input[type="tel"],
+        select {
+            padding: 8px;
+            border: 1px solid #613535;
+            border-radius: 4px;
+            width: 100%; /* Fills the column */
+            box-sizing: border-box; /* Ensures padding doesn't break layout */
+        }
+
+        
+        .radio-group, .checkbox-group {
+            margin-bottom: 20px;
+            padding: 10px;
+            background-color: #eefbeaa7;
+            border-radius: 5px;
+        }
+        
+        button {
+            width: 100%;
+            padding: 12px;
+            background-color: #d32f2f;
+            color: white;
+            font-size: 16px;
+            border: none;
+            border-radius: 200px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #b71c1c;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <div style="text-align: center; margin-bottom: 20px;">
+            <marquee><img src="https://d107tqdgn7te45.cloudfront.net/images/logos/SIT.png" alt="Logo" style="height: 100px;color: #00000000;"></marquee>
+        </div>
+        
+        <h1 style="color: #000000;padding: auto;;">SPORTS SPECTRA</h1>
+        <p style="text-align: center; font-style: italic;font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;color: #000000;">
+            <marquee>Sports Spectra at Symbiosis Nagpur is a two-day sports fest celebrating teamwork.</marquee>
+        </p>
+        <hr><br>
+
+        <form>
+            <div class="form-row">
+                <div class="form-col">
+                    <label>First Name:</label>
+                    <input type="text" name="First_Name">
+                </div>
+                <div class="form-col">
+                    <label>Middle Name:</label>
+                    <input type="text" name="Middle_Name">
+                </div>
+                <div class="form-col">
+                    <label>Last Name:</label>
+                    <input type="text" name="Last_Name">
+                </div>
+            </div>
+
+            <div class="form-row">
+                <div class="form-col">
+                    <label>PRN:</label>
+                    <input type="text" name="PRN">
+                </div>
+                <div class="form-col">
+                    <label>Semester:</label>
+                    <input type="text" name="sem">
+                </div>
+            </div>
+
+            <div class="form-row">
+                <div class="form-col">
+                    <label>SIT Mail ID:</label>
+                    <input type="email" name="Sit_mail_id">
+                </div>
+                <div class="form-col">
+                    <label>Date of Birth:</label>
+                    <input type="date" name="bday">
+                </div>
+            </div>
+
+            <div class="form-row">
+                <div class="form-col">
+                    <label>Contact Number:</label>
+                    <input type="tel" name="num">
+                </div>
+                
+                <div class="form-col">
+                    <label>Section:</label>
+                    <div style="margin-top: 5px;background-color: #f8eeeeb3;padding: 10px;background-color: #ccc;border-radius: 20px;">
+                        <input type="radio" name="section" value="A"> A &nbsp;
+                        <input type="radio" name="section" value="B"> B &nbsp;
+                        <input type="radio" name="section" value="C"> C &nbsp;
+                        <input type="radio" name="section" value="D"> D
+                    </div>
+                </div>
+            </div>
+
+            <div class="checkbox-group">
+                <h3>Select interested sports:</h3>
+                <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 10px;">
+                    <label><input type="checkbox" name="sport" value="Cricket"> Cricket</label>
+                    <label><input type="checkbox" name="sport" value="Football"> Football</label>
+                    <label><input type="checkbox" name="sport" value="Basketball"> Basketball</label>
+                    <label><input type="checkbox" name="sport" value="Volleyball"> Volleyball</label>
+                    <label><input type="checkbox" name="sport" value="Swimming"> Swimming</label>
+                    <label><input type="checkbox" name="sport" value="Handball"> Handball</label>
+                </div>
+                <br>
+                <label>Other:</label>
+                <input type="text" name="other" placeholder="Enter sport name">
+            </div>
+
+            <div class="form-row">
+                <div class="form-col">
+                    <label>Upload Certificate (if any):</label>
+                    <input type="file" name="fileupload">
+                </div>
+            </div>
+
+            <button type="submit">Submit Registration</button>
+        </form>
+    </div>
+
+</body>
+</html>
