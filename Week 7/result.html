@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Result</title>
+    <link rel="stylesheet" href="stylesheet1.css">
+</head>
+<body>
+
+<div class="container">
+
+    <div class="card">
+        <h2 id="resultText"></h2>
+        <p id="message"></p>
+
+        <a href="index.html" class="btn btn-primary">Home</a>
+    </div>
+
+</div>
+
+<script>
+let name = localStorage.getItem("quizName") || "Player";
+let score = parseInt(localStorage.getItem("quizScore")) || 0;
+
+document.getElementById("resultText").innerHTML =
+    name + ", your score is " + score + "/10";
+
+let msg = document.getElementById("message");
+
+if (score >= 8)
+    msg.innerHTML = "Excellent!";
+else if (score >= 5)
+    msg.innerHTML = "Good job!";
+else
+    msg.innerHTML = "Try again!";
+</script>
+
+</body>
+</html>

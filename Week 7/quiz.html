@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Quiz Questions</title>
+    <link rel="stylesheet" href="stylesheet1.css">
+</head>
+<body>
+
+<div class="container">
+
+    <div class="site-header">
+        <h1>Computer Science Quiz</h1>
+        <p>Enter your name and answer all questions</p>
+    </div>
+
+    <h2 id="timer">Time Left: 60s</h2>
+
+    <div class="card">
+        <form id="quizForm">
+
+            <label>Your Name:</label>
+            <input type="text" id="username" required>
+
+            <!-- Questions -->
+            <h3>1. CPU stands for?</h3>
+            <input type="radio" name="q1" value="1"> Central Processing Unit<br>
+            <input type="radio" name="q1" value="0"> Computer Personal Unit<br>
+
+            <h3>2. Web development language?</h3>
+            <input type="radio" name="q2" value="1"> HTML<br>
+            <input type="radio" name="q2" value="0"> C++<br>
+
+            <h3>3. RAM is?</h3>
+            <input type="radio" name="q3" value="1"> Random Access Memory<br>
+            <input type="radio" name="q3" value="0"> Read Access Memory<br>
+
+            <h3>4. Operating system?</h3>
+            <input type="radio" name="q4" value="1"> Windows<br>
+            <input type="radio" name="q4" value="0"> Intel<br>
+
+            <h3>5. HTTP stands for?</h3>
+            <input type="radio" name="q5" value="1"> HyperText Transfer Protocol<br>
+            <input type="radio" name="q5" value="0"> High Transfer Text Protocol<br>
+
+            <h3>6. Programming language?</h3>
+            <input type="radio" name="q6" value="1"> Java<br>
+            <input type="radio" name="q6" value="0"> Chrome<br>
+
+            <h3>7. DBMS stands for?</h3>
+            <input type="radio" name="q7" value="1"> Database Management System<br>
+            <input type="radio" name="q7" value="0"> Data Backup System<br>
+
+            <h3>8. Input device?</h3>
+            <input type="radio" name="q8" value="1"> Keyboard<br>
+            <input type="radio" name="q8" value="0"> Monitor<br>
+
+            <h3>9. Database?</h3>
+            <input type="radio" name="q9" value="1"> MySQL<br>
+            <input type="radio" name="q9" value="0"> CPU<br>
+
+            <h3>10. Binary uses?</h3>
+            <input type="radio" name="q10" value="1"> 0 and 1<br>
+            <input type="radio" name="q10" value="0"> 0 to 9<br><br>
+
+            <button type="button" class="btn btn-primary" onclick="calculateScore()">Submit</button>
+
+        </form>
+    </div>
+
+</div>
+
+<script>
+let timeLeft = 60;
+
+let timer = setInterval(function() {
+    timeLeft--;
+    document.getElementById("timer").innerText = "Time Left: " + timeLeft + "s";
+
+    if (timeLeft <= 0) {
+        clearInterval(timer);
+        alert("Time's up!");
+        calculateScore();
+    }
+}, 1000);
+
+function calculateScore() {
+    let score = 0;
+    let name = document.getElementById("username").value.trim();
+    let form = document.forms["quizForm"];
+
+    if (name === "") {
+        alert("Enter your name!");
+        return;
+    }
+
+    for (let i = 1; i <= 10; i++) {
+        let answered = false;
+        let q = form["q" + i];
+
+        for (let j = 0; j < q.length; j++) {
+            if (q[j].checked) {
+                score += parseInt(q[j].value);
+                answered = true;
+            }
+        }
+
+        if (!answered) {
+            alert("Answer question " + i);
+            return;
+        }
+    }
+
+    localStorage.setItem("quizName", name);
+    localStorage.setItem("quizScore", score);
+
+    window.location.href = "result.html";
+}
+</script>
+
+</body>
+</html>
